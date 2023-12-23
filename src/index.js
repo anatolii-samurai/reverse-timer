@@ -1,7 +1,22 @@
 const dateForm = document.querySelector('.date')
 const inputDate = document.getElementById('add_date')
 const timer = document.querySelector('.timer')
+
+window.addEventListener('load', () => {
+    const lastTime = getLocaleStorage();
+    //   inputDate.value = lastTime;
+      // eslint-disable-next-line no-use-before-define
+    //   getTimeRemaining(lastTime)
+      setClock('.timer',lastTime);
       
+  });
+
+function getLocaleStorage(){
+    return localStorage.getItem('time');
+}
+function setLocaleStorage(time){
+    localStorage.setItem('time', time);
+}
 
 dateForm.addEventListener('submit',(e)=>{
     e.preventDefault();
@@ -11,8 +26,10 @@ dateForm.addEventListener('submit',(e)=>{
         let deadLine = inputDate.value;
         getTimeRemaining(deadLine);
         setClock('.timer',deadLine);
+        setLocaleStorage(deadLine)
         inputDate.value = '';
     }
+    
 })
 function getTimeRemaining(endtime) {
     const t = Date.parse(endtime) - Date.parse(new Date()),
@@ -58,5 +75,6 @@ function setClock(selector,endtime){
             if (t.total <= 0) {
                 clearTimeout(timeInterval);
             }
+            
         }
 }
