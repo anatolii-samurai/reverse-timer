@@ -1,0 +1,33 @@
+.container{
+    margin: 0 auto;
+    display: flex;
+    width: 600px;
+    justify-content: center;
+    flex-direction: column;
+}
+#date{
+    width: 250px;
+    height: 20px;
+}
+.btn{
+    width: 250px;
+    height: 20px;
+    background-color:#5E55D6;
+    border: none;
+    border-radius: 5px;
+    font-size: 10px;
+    font-style: italic;
+    color: aliceblue;
+    
+}
+.time_text{
+    font-size:10px;
+}
+.timer{
+    display: flex;
+
+}
+#days,#hours,#minutes,#seconds{
+    margin-right: 5px;
+    font-size: 20px;
+}
